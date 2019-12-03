@@ -108,3 +108,28 @@ let linkHover = document.querySelectorAll('.nav-link').forEach(el => {
 
 //
 
+let infringe = document.querySelector('.footer p');
+infringe.addEventListener("copy", () => {
+    alert("HEY DON'T TOUCH THAT");
+});
+
+// propagation
+
+const body = document.querySelector("body");
+body.addEventListener('click', () => {
+  body.style.backgroundColor="lightgray";
+  console.log("end")
+});
+
+const container = document.querySelector(".container")
+container.addEventListener('click', () => {
+  container.style.backgroundColor="purple";
+  console.log("middle")
+});
+
+const section = document.querySelectorAll(".text-content").forEach(el => {
+el.addEventListener('click', (event) => {
+  el.style.backgroundColor="pink";
+  console.log("start")
+  event.stopPropagation()
+})})
