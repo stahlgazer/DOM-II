@@ -118,18 +118,24 @@ infringe.addEventListener("copy", () => {
 const body = document.querySelector("body");
 body.addEventListener('click', () => {
   body.style.backgroundColor="lightgray";
-  console.log("end")
 });
 
 const container = document.querySelector(".container")
 container.addEventListener('click', () => {
   container.style.backgroundColor="purple";
-  console.log("middle")
 });
 
-const section = document.querySelectorAll(".text-content").forEach(el => {
+const section = document.querySelectorAll(".content-section").forEach(el => {
 el.addEventListener('click', (event) => {
   el.style.backgroundColor="pink";
-  console.log("start")
   event.stopPropagation()
 })})
+
+// stop nav items refreshing
+
+let removeNav = document.querySelectorAll(".nav-link")
+console.log(removeNav.length)
+for(let i = 0; i < removeNav.length; i++){
+removeNav[i].addEventListener("click", function(event){
+    event.preventDefault()
+  })};
